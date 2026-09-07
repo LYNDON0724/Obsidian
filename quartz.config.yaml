@@ -5,7 +5,7 @@ configuration:
   enableSPA: true
   enablePopovers: true
   locale: en-US
-  baseUrl: lyndon0724.github.io/Obsidian
+  baseUrl: zhangst.com
   ignorePatterns:
     - private
     - templates

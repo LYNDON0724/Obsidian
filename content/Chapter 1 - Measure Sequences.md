@@ -132,8 +132,6 @@ Fix $\beta$ with $0 < \beta < (2^\kappa)^+$. We choose the truncation of $E$ acc
 - **Case 1:** $\beta > \kappa$. Let $E' = E \upharpoonright [\beta]^{<\omega}$.
 - **Case 2:** $\beta \leq \kappa$. The truncation $E \upharpoonright [\beta]^{<\omega}$ is now *trivial*: since $j$ fixes every $a \in [\beta]^{<\omega}$, each of its measures is principal, so $Ult(V, E \upharpoonright [\beta]^{<\omega}) = V$ and the associated embedding is the identity — which cannot be a constructing embedding for anything. We therefore truncate further out and set $E' = E \upharpoonright [\kappa + \beta]^{<\omega}$.
 
-% Could be written in a better way...
-
 In both cases $E'$ is nontrivial: its fragment at $\{\kappa\}$ is exactly $U(0)$ (this is precisely why Case 2 requires the longer truncation). Moreover $E'$ is coded by a $(\kappa + \beta)$-sequence of elements of $V_{\kappa+2}$, and $\kappa + \beta < (2^\kappa)^+$, so part (a) gives $E' \in M$. Let $j' : V \to M' \simeq Ult(V, E')$, let $k : M' \to M$ be the factor map with $j = k \circ j'$, and let $i = j' \upharpoonright M : M \to N$, where $N = j'(M) \simeq Ult(M, E')$ (the identification uses ${}^\kappa M \subseteq M$). Note that $\mathrm{crit}(i) = \kappa$, so $i$ is a legitimate candidate for a constructing embedding.
 
 ```tikz
@@ -157,13 +155,16 @@ We record the standard properties of the factor map: $k \upharpoonright \beta = 
 *Proof of Claim.* Since $\mathrm{crit}(k) > \kappa$, $k$ fixes $V_\kappa$ pointwise, so $U = k[U ]\subseteq k(U)$. Both are ultrafilters on $V_\kappa$, and $V_{\kappa+1} \cap M' = V_{\kappa+1} \cap M = V_{\kappa+1}$, so by maximality of $U$ as a filter, $U = k(U)$. $\dashv$
 
 Now let $\vec{U}^*$ be the $i$-sequence of ultrafilters constructed in $M$. We show by induction on $\gamma < \beta$ that $U^*(\gamma) = U(\gamma)$. Suppose $\vec{U}^* \upharpoonright \gamma = \vec{U} \upharpoonright \gamma$. For $X \subseteq V_\kappa$ (note $X \in M$):
+
 $$\begin{aligned}
 X \in U^*(\gamma) &\iff \vec{U}^* \upharpoonright \gamma \in i(X) \\
 &\iff \vec{U} \upharpoonright \gamma \in j'(X) && (i = j' \upharpoonright M) \\
 &\iff k(\vec{U} \upharpoonright \gamma) \in j(X) && (\text{elementarity of } k,\ j = k \circ j') \\
 &\iff \vec{U} \upharpoonright \gamma \in j(X) && (k \text{ fixes } \kappa,\ \gamma,\ \text{and each } U(\delta) \text{ by the Claim}) \\
 &\iff X \in U(\gamma).
-\end{aligned}$$
+\end{aligned}
+$$
+
 Hence in $M$, $\vec{U} \upharpoonright \beta$ is the $i$-sequence, so $\vec{U} \upharpoonright \beta \in j(A^{(0)})$, as required.
 
 **Step 2: a general observation.** The following agreement holds for *any* elementary embedding $j : V \to M$ with $\mathrm{crit}(j) = \kappa$ — no closure hypothesis on $M$ is needed:
