@@ -156,7 +156,8 @@ We record the standard properties of the factor map: $k \upharpoonright \beta = 
 
 Now let $\vec{U}^*$ be the $i$-sequence of ultrafilters constructed in $M$. We show by induction on $\gamma < \beta$ that $U^*(\gamma) = U(\gamma)$. Suppose $\vec{U}^* \upharpoonright \gamma = \vec{U} \upharpoonright \gamma$. For $X \subseteq V_\kappa$ (note $X \in M$):
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 X \in U^*(\gamma) &\iff \vec{U}^* \upharpoonright \gamma \in i(X) \\
 &\iff \vec{U} \upharpoonright \gamma \in j'(X) && (i = j' \upharpoonright M) \\
 &\iff k(\vec{U} \upharpoonright \gamma) \in j(X) && (\text{elementarity of } k,\ j = k \circ j') \\
