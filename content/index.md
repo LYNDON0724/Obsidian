@@ -12,8 +12,3 @@ An introductory textbook-in-progress on Radin forcing, following M. Gitik's chap
 4. [[Chapter 4 - Preserving Large Cardinals]]
 5. [[Chapter 5 - Coherent Sequences of Measures]]
 6. [[Chapter 6 - Magidor Forcing]]
-
-## Background material
-
-- [[IMPAN - SimSem - Cummings]] — Cummings' lecture notes
-- [[Lecture 1 - Radin Forcing (Cummings)]], [[Lecture 2 - Radin Forcing (Cummings)]] — notes from the recorded lectures

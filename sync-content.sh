@@ -5,9 +5,10 @@ set -e
 VAULT="/Users/jiamingzhang/Library/Mobile Documents/iCloud~md~obsidian/Documents/Default/Set Theory/Radin Forcing"
 QUARTZ_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-rsync -a --delete \
+rsync -a --delete --delete-excluded \
   --include='*/' \
-  --include='*.md' \
+  --include='Chapter*.md' \
+  --include='index.md' \
   --exclude='*' \
   --prune-empty-dirs \
   "$VAULT/" "$QUARTZ_DIR/content/"
