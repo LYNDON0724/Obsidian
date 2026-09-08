@@ -134,19 +134,7 @@ Fix $\beta$ with $0 < \beta < (2^\kappa)^+$. We choose the truncation of $E$ acc
 
 In both cases $E'$ is nontrivial: its fragment at $\{\kappa\}$ is exactly $U(0)$ (this is precisely why Case 2 requires the longer truncation). Moreover $E'$ is coded by a $(\kappa + \beta)$-sequence of elements of $V_{\kappa+2}$, and $\kappa + \beta < (2^\kappa)^+$, so part (a) gives $E' \in M$. Let $j' : V \to M' \simeq Ult(V, E')$, let $k : M' \to M$ be the factor map with $j = k \circ j'$, and let $i = j' \upharpoonright M : M \to N$, where $N = j'(M) \simeq Ult(M, E')$ (the identification uses ${}^\kappa M \subseteq M$). Note that $\mathrm{crit}(i) = \kappa$, so $i$ is a legitimate candidate for a constructing embedding.
 
-```tikz
-\usepackage{tikz-cd}
-\usepackage{amssymb}
-
-\begin{document}
-\begin{tikzcd}[row sep=2.5em, column sep=2.5em]
-
-V \arrow[r, "j"] \arrow[d, swap, "j'"] & M \arrow[d, "i = j' \upharpoonright M"] \\
-M' \simeq Ult(V, E') \arrow[ur, swap, "k"] & N = j'(M) \simeq Ult(M, E')
-
-\end{tikzcd}
-\end{document}
-```
+![](static/tikz/tikz-21ca756000.svg)
 
 We record the standard properties of the factor map: $k \upharpoonright \beta = \mathrm{id}$ and $\mathrm{crit}(k) \geq \kappa^+$ (note $(\kappa^+)^{M'} = \kappa^+$ since $V_{\kappa+1} \subseteq M'$). In particular $k(\kappa) = \kappa$.
 
