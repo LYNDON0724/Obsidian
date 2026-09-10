@@ -2,6 +2,13 @@
 
 // put your custom CSS here!
 
+// TikZ diagrams: centered, slightly enlarged (SVG scales losslessly)
+img[src*="static/tikz/"] {
+  display: block;
+  margin: 1.5em auto;
+  zoom: 1.4;
+}
+
 // TikZ diagrams are rendered as black-on-transparent SVGs; invert in dark mode
 [saved-theme="dark"] img[src*="static/tikz/"] {
   filter: invert(0.9) hue-rotate(180deg);
