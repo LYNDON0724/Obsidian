@@ -3,6 +3,7 @@
 with image embeds. The Obsidian vault keeps the original TikzJax blocks;
 this script only rewrites the copies under content/."""
 import hashlib
+import os
 import re
 import subprocess
 import sys
@@ -24,15 +25,21 @@ def render_svg(body: str, out: Path) -> None:
     # real LaTeX (unlike TikzJax) rejects blank lines inside tikzcd
     inner = "\n".join(l for l in inner.split("\n") if l.strip())
     doc = PREAMBLE + "\n".join(packages) + "\n\\begin{document}\n" + inner + "\n\\end{document}\n"
+    env = dict(os.environ)
+    env["PATH"] = "/usr/local/bin:/opt/homebrew/bin:" + env.get("PATH", "")
     with tempfile.TemporaryDirectory() as td:
         tex = Path(td) / "fig.tex"
         tex.write_text(doc)
-        r = subprocess.run(["latex", "-interaction=nonstopmode", "-halt-on-error", "fig.tex"],
-                           cwd=td, capture_output=True, text=True)
+        # pdflatex (pdfTeX driver) + mutool: the MiKTeX latex->DVI->dvisvgm
+        # route drops tikz arrows; PDF route via mutool is faithful.
+        r = subprocess.run(["pdflatex", "-interaction=nonstopmode", "-halt-on-error", "fig.tex"],
+                           cwd=td, capture_output=True, text=True, env=env)
         if r.returncode != 0:
-            raise RuntimeError("latex failed:\n" + r.stdout[-2000:])
-        subprocess.run(["dvisvgm", "--no-fonts", "--exact", "fig.dvi", "-o", str(out)],
-                       cwd=td, check=True, capture_output=True, text=True)
+            raise RuntimeError("pdflatex failed:\n" + r.stdout[-2000:])
+        r = subprocess.run(["mutool", "draw", "-F", "svg", "-o", str(out), "fig.pdf"],
+                           cwd=td, capture_output=True, text=True, env=env)
+        if r.returncode != 0:
+            raise RuntimeError("mutool failed:\n" + r.stderr[-2000:])
 
 def main() -> None:
     SVG_DIR.mkdir(parents=True, exist_ok=True)
